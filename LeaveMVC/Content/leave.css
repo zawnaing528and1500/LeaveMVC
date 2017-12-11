@@ -1,0 +1,169 @@
+﻿        body {
+                     background-repeat: no-repeat;
+                     background-size: auto;
+                     background-color:#F8F8FF;
+                     background-image:url("http://localhost:27975/Image/");
+                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            .box {	
+                background-color:#EEF3E2;
+                  border-radius:5px;
+                  margin:auto;
+                  padding:12px;
+                  max-width:955px;
+                }
+
+            .boxForLeaveRequest {	
+                background-color:#EEF3E2;
+                  border-radius:5px;
+                  margin:auto;
+                  padding:12px;
+                  max-width:960px;
+                }
+
+            .widebox {	
+                background-color:ghostwhite;
+                  border-radius:5px;
+                  margin:auto;
+                  padding:12px;
+                  max-width:950px;
+                  min-width:300px;
+                }
+
+            .pageSize {
+              background-color:#E6E6FA;
+              margin:0 auto;
+              max-width:70em;
+              padding:0 0.625em;
+            }
+
+          .bodyHeadText{font-size:2em;font-family:Monotype Corsiva;} 
+
+           fieldset{
+                font-size:17px;
+                padding:15px;
+                width:500px;
+                    }
+           input{
+                padding: 0;
+                height: 40px;
+                position: relative;
+                left: 0;
+                outline: none;
+                border: 1px solid #cdcdcd;
+                border-color: #EEE8CD;
+                background-color: white;
+                font-size: 17px;
+            }
+
+            .select {
+                width: 225px;
+                height: 40px;
+                cursor: pointer;
+                background-color: white;
+                box-shadow: 0 1px 0 white;
+                border-radius: 2px;
+                      }
+             .borderTable{
+            border: 1px groove #ECF1EF;
+                }
+             .borderTable1{
+            border: 1px groove #ECF1EF;
+            background-color:#FFFFFD;
+                }
+             .borderTableLeave{
+                 background-color:#F8F8FF;
+                 border-spacing: 10px; 
+             }
+             .borderTableLeave th{
+                 background-color:rgba(244,238,244,0.5);
+             }
+
+            .borderTable1 tr:hover {
+          background-color: #EEF3E2;
+             }
+
+             th{
+                 background-color:#EEF3E2;
+             }
+
+
+
+            @media screen and (max-width: 600px) {
+              .hideTd1 {
+                clear: both;
+                float: left;
+                margin: 10px auto 5px 20px;
+                width: 28%;
+                display: none;
+              }
+              .pendingTable td{
+                min-width:6em;
+              }
+            }
+
+
+            @media screen and (min-width: 600px) {
+                table.borderTable td {
+                    min-width:7em;
+                }
+
+                table.borderTable1 td {
+                    min-width:6em;
+                }
+            }
+
+         @media screen and (max-width: 320 px){
+             div.hideOnPhone{
+                    display:block;
+             }
+         }
+
+         input[type = submit] {
+              background: #7bc4c7;
+              background-image: -webkit-linear-gradient(top, #7bc4c7, #a6a6a6);
+              background-image: -moz-linear-gradient(top, #7bc4c7, #a6a6a6);
+              background-image: -ms-linear-gradient(top, #7bc4c7, #a6a6a6);
+              background-image: -o-linear-gradient(top, #7bc4c7, #a6a6a6);
+              background-image: linear-gradient(to bottom, #7bc4c7, #a6a6a6);
+              -webkit-border-radius: 28;
+              -moz-border-radius: 28;
+              border-radius: 28px;
+              font-family: Georgia;
+              color: #153838;
+              font-size: 16px;
+              padding: 8px 11px 10px 13px;
+              text-decoration: none;
+            }
+
+            input[type=submit]:hover {
+              background: #98e0c8;
+              background-image: -webkit-linear-gradient(top, #98e0c8, #79bab5);
+              background-image: -moz-linear-gradient(top, #98e0c8, #79bab5);
+              background-image: -ms-linear-gradient(top, #98e0c8, #79bab5);
+              background-image: -o-linear-gradient(top, #98e0c8, #79bab5);
+              background-image: linear-gradient(to bottom, #98e0c8, #79bab5);
+              text-decoration: none;
+            }
+
+            textarea{
+            min-height:10em;
+            min-width:20em;
+            border: 1px solid #EEDFCC;
+            }
+
+            @media only screen and (min-width:960px){
+            .borderTableLeave td,th{
+            padding:13px;
+            border:1px solid #FFFFF0;
+             }
+              }
+
+            @media only screen and (max-width:500px) {
+                .hideOnPhone{
+                    display:none
+                }
+            }
+
+            /*This is for receiving data from server*/

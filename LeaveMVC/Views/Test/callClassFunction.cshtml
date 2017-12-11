@@ -1,0 +1,46 @@
+﻿@using Leave.App_Code
+@using System.Data
+@using System.Configuration
+@using System.Data.SqlClient
+@using System.Diagnostics
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>callClassFunction</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            DatabaseAccess d = new DatabaseAccess();
+            DataTable dt = d.GetData();
+            foreach (DataColumn col in dt.Columns)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    @row[col.ColumnName].ToString()
+                    }
+                }
+
+            }
+    </div>
+    <a href="@Url.Action("Index", "Test")">Click</a>
+    <p>@Html.ActionLink("WELCOME","Index","Test")</p>
+
+    @using (Html.BeginForm("GetTextBoxValue", "Test"))
+    {
+
+        <input id="Text1" type="text" name="txtOne" />
+        <input id="Text2" type="hidden" name="txtTwo" value="HI I AM HIDDEN"/>
+        <input id="Button1" type="submit" value="button" />
+    }
+
+    <a href="http://localhost:58756/Test/useQueryString?name=zaw naing">HELLO</a>
+</body>
+</html>
