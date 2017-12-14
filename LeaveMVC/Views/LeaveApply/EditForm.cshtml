@@ -407,31 +407,38 @@
         </div>
         <br />
         <div onmouseover="addArrayDataToHiddenField()" />
-        <form action="InsertLeaveDetails.aspx" id="form1" method="get" name="form1">
-            <div class="box">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <input type="tel" name="mobile" id="EmployeePhone" pattern="^\d{2}[-]?\d{5,9}$" placeholder="Enter Mobile Number" required />
-                            <input type="hidden" name="HComboValue" id="HC" />
-                            <input type="hidden" name="HStartDate" id="HS" />
-                            <input type="hidden" name="HEndDate" id="HE" />
-                            <input type="hidden" name="HOneDay" id="HO" /><!--To put isCompassionate, first half day, and second half day -->
-                            <input type="hidden" name="HDateDiff" id="HD" />
-                            <input type="hidden" name="HIscompassionate" id="HI" />
-                            <input type="hidden" name="HIsHalfDay" id="HIH" />
-                            <input type="hidden" name="HHandover" id="HH" />
-                            <textarea cols="30" class="forTextarea" name="reason" placeholder="Enter Your Leave Reason" required></textarea>
+            @using (Html.BeginForm("GetValueFromEditForm", "LeaveApply"))
+            {
+                <form>
+                    <div class="box">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Enter Mobile Phone</label>
+                                    <input type="tel" name="mobile" id="EmployeePhone" pattern="^\d{2}[-]?\d{5,9}$" placeholder="Enter Mobile Number" required />
+                                    <input type="hidden" name="HComboValue" id="HC" />
+                                    <input type="hidden" name="HStartDate" id="HS" />
+                                    <input type="hidden" name="HEndDate" id="HE" />
+                                    <input type="hidden" name="HOneDay" id="HO" /><!--To put isCompassionate, first half day, and second half day -->
+                                    <input type="hidden" name="HDateDiff" id="HD" />
+                                    <input type="hidden" name="HIscompassionate" id="HI" />
+                                    <input type="hidden" name="HIsHalfDay" id="HIH" />
+                                    <input type="hidden" name="HHandover" id="HH" />
+                                    <label>Enter Leave Reason</label>
+                                    <textarea cols="30" class="forTextarea" name="reason" placeholder="Enter Your Leave Reason" required></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Enter HOD Comment</label>
+                                    <textarea cols="30" class="forTextarea" name="comment" placeholder="HOD Comment" disabled="true"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="submit" value="REQUEST" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <textarea cols="30" class="forTextarea" name="comment" placeholder="HOD Comment" disabled="true"></textarea>
-                        </div>
-                        <div class="col-md-6">
-                            <input type="submit" value="REQUEST" />
-                        </div>
-                    </div>
-                </div>
-        </form>
+                </form>
+            }
+        
         </div>
         <br />
         </div>

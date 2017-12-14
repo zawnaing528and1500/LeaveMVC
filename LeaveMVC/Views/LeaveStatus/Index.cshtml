@@ -70,13 +70,15 @@
                                     }
                                     for (int i = 0; i < dt.Rows.Count; i++)
                                     {
-                                        <tr>
+                                        <tr>@{ 
+                                            string LeaveRequestID = dt.Rows[i][0].ToString()
+                                        }
                                             <td>@dt.Rows[i][1].ToString() </td>
                                             <td>@dt.Rows[i][2].ToString() </td>
                                             <td>@dt.Rows[i][3].ToString() </td>
                                             <td class="hideOnPhone">@dt.Rows[i][4].ToString() </td>
                                             <td class="hideOnPhone">@dt.Rows[i][5].ToString() </td>
-                                            <td><a href="http://localhost:58756/Test/useQueryString?name=@dt.Rows[i][0].ToString()"><img src='http://localhost:58756/Image/delete.png' /></a>&nbsp&nbsp<img src='http://localhost:27975/Image/edit.png'/></td>
+                                            <td><a href="http://localhost:58756/Test/useQueryString?name=@LeaveRequestID"><img src='http://localhost:58756/Image/delete.png' /></a>&nbsp&nbsp<a href="http://localhost:58756/Test/useQueryString?name=@LeaveRequestID"><img src='http://localhost:27975/Image/edit.png' /></a></td>
                                         </tr>
                                     }
                                 }

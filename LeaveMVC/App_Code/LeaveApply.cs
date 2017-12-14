@@ -311,6 +311,55 @@ namespace LeaveMVC.App_Code
             }
         }
 
+        public void UpdateLeaveRequest(int EmpID, int LeaveRequestID, string LeaveReason, DateTime FromDate, DateTime ToDate, int RequireDays, Boolean isHalfDay, Boolean isCompassionate)
+        {
+            DateTime today = DateTime.Today;
+            //update where EmpID = 1 and LeaveID is...
+            string query = "UPDATE dbo.Leave_Request SET LeaveReason=@LeaveReason,FromDate=@FromDate,ToDate=@ToDate,RequireDays=@RequiredDays,isHalfDay=@isHalfDay,isCompassionate=@isCompassionate WHERE ID = @LeaveRequestID AND EmpID = @EmpID";
+            string conString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@LeaveReason", LeaveReason);
+                    cmd.Parameters.AddWithValue("@FromDate", FromDate);
+                    cmd.Parameters.AddWithValue("@ToDate", ToDate);
+                    cmd.Parameters.AddWithValue("@RequireDays", RequireDays);
+                    cmd.Parameters.AddWithValue("@isHalfDay", isHalfDay);
+                    cmd.Parameters.AddWithValue("@isCompassionate", isCompassionate);
+                    cmd.Parameters.AddWithValue("@LeaveRequestID", LeaveRequestID);
+                    cmd.Parameters.AddWithValue("@EmpID", EmpID);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        public void UpdateLeaveRequestToUsedLeave(int EmpID, int LeaveID, DateTime FromDate, DateTime ToDate, decimal UsedLeave)
+        {
+            int LeaveRequestID = getLastInsertedLeaveRequestID();
+            string query = "UPDATE dbo.Used_Leave SET EmpID,LeaveID,FromDate,ToDate,LeaveRequestID,UsedLeave) VALUES (@EmpID,@LeaveID,@FromDate,@ToDate,@LeaveRequestID,@UsedLeave)";
+            string conString = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@EmpID", EmpID);
+                    cmd.Parameters.AddWithValue("@LeaveID", LeaveID);
+                    cmd.Parameters.AddWithValue("@FromDate", FromDate);
+                    cmd.Parameters.AddWithValue("@ToDate", ToDate);
+                    cmd.Parameters.AddWithValue("@LeaveRequestID", LeaveRequestID);
+                    cmd.Parameters.AddWithValue("@UsedLeave", UsedLeave);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+
 
         public int getLastInsertedLeaveRequestID()
         {
